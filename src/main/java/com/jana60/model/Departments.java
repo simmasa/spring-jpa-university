@@ -81,6 +81,12 @@ public class Departments {
 	public void setHead(String head) {
 		this.head = head;
 	}
+
+	@Override
+	public String toString() {
+		return name + " diretto da " + head + " è sito in " + address + ". Telefono: " + phone + ", Email: " + email
+				+ ", Website: " + website+".";
+	}
 	
 	
 }
