@@ -15,20 +15,21 @@ import com.jana60.repository.DepartmentsRepository;
 @RequestMapping("/")
 public class MainController {
 	
-	@GetMapping
-	public String countries(Model model) {
-		List<String> dep = List.of("Ingegneria","Architettura","Economia");
-		model.addAttribute("depar", dep);
-		return "index";
-	}
-	
 	@Autowired
 	private DepartmentsRepository repo;
 	
-	@GetMapping("/bonus")
+	@GetMapping("/")
 	public String countBonus (Model m) {
 		List<Departments> depa = (List<Departments>) repo.findAll();
 		m.addAttribute("depName",depa);
-		return "bonus";
+		return "Index";
 	}
+	
+	@GetMapping("/vecchio")
+	public String countries(Model model) {
+		List<String> dep = List.of("Ingegneria","Architettura","Economia");
+		model.addAttribute("depar", dep);
+		return "vecchio";
+	}
+
 }

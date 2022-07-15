@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments :: metatags(name='vecchio')">
+
+
+    <!-- <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dipartimenti Base</title> -->
+    
+</head>
+<body>
+    <header th:insert="fragments :: navbar"></header>
+    <h1>Dipartimenti</h1>
+    <hr>
+    <ul>
+        <li th:each="dep : ${depar}" th:text="${dep}"></li>
+    </ul>
+</body>
+</html>

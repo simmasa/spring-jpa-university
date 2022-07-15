@@ -1,17 +1,34 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dipartimenti Base</title>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments :: metatags(name='index')">
+    
 </head>
 <body>
-    <h1>Dipartimenti</h1>
-    <a href="/bonus">Al bonus</a>
+    <header th:insert="fragments :: navbar"></header>
+    <h1 class="text-center">Dipartimenti</h1>
     <hr>
-    <ul>
-        <li th:each="dep : ${depar}" th:text="${dep}"></li>
-    </ul>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Direttore</th>
+                <th>Indirizzo</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Sito</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="depa : ${depName}">
+                <td th:text="${depa.getName()}"></td>
+                <td th:text="${depa.getHead}"></td>
+                <td th:text="${depa.getAddress()}"></td>
+                <td th:text="${depa.getPhone()}"></td>
+                <td th:text="${depa.getEmail()}"></td>
+                <td th:text="${depa.getWebsite()}"></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>
