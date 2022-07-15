@@ -21,6 +21,7 @@ public class MainController {
 	@GetMapping("/")
 	public String countBonus (Model m) {
 		List<Departments> depa = (List<Departments>) repo.findAll();
+		List<String> dep = List.of();
 		m.addAttribute("depName",depa);
 		return "Index";
 	}
