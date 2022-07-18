@@ -21,7 +21,7 @@
         	</thead>
         	<tbody>
            		<tr th:each="depa : ${depName}">
-                	<td th:text="${depa.getName()}"></td>
+                	<td ><a th:text="${depa.name}" th:href="@{|/depid_${depa.id}|}"></a></td>
                 	<td th:text="${depa.getHead}"></td>
                 	<td th:text="${depa.getAddress()}"></td>
                 	<td th:text="${depa.getPhone()}"></td>

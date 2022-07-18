@@ -1,11 +1,11 @@
 package com.jana60.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
@@ -15,7 +15,8 @@ public class Degrees {
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Integer id;
+	@Column(name="id")
+	private Integer degreeId;
 	
 	private String name;
 	private String level;
@@ -30,11 +31,11 @@ public class Degrees {
 	
 	//getter-setter
 	public Integer getId() {
-		return id;
+		return degreeId;
 	}
 
 	public void setId(Integer id) {
-		this.id = id;
+		this.degreeId = id;
 	}
 
 	public String getName() {

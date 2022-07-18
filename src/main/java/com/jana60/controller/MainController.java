@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.jana60.model.Departments;
@@ -33,4 +34,11 @@ public class MainController {
 		return "vecchio";
 	}
 
+	@GetMapping("/depid_{id}")
+	public String depDetail(Model mod , 
+		@PathVariable(name="id") Integer depaKey){
+		Departments thisDepa = repo.findById(depaKey).get();
+		mod.addAttribute("deta",thisDepa);
+		return "departmentDet";
+	}
 }

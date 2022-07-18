@@ -7,7 +7,7 @@
     <header th:insert="fragments :: navbar(degrees)"></header>
     <h1 class="text-center">Dipartimenti</h1>
     <hr>
-	<div class="container" th:if="${!degree.empty}">
+	<div class="container" th:if="${degree.size()>0}">
     	<table class="table table-striped border">
         	<thead>
             	<tr>
@@ -30,6 +30,6 @@
         	</tbody>
     	</table>
 	</div>
-    <p th:if="${depName.empty}" class="text-center">Nessun dipartimento trovato</p>
+    <p th:unless="${degree.size()>0}" class="text-center">Nessun dipartimento trovato</p>
 </body>
 </html>

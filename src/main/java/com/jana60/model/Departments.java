@@ -1,10 +1,14 @@
 package com.jana60.model;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -23,6 +27,10 @@ public class Departments {
 	
 	@Column(name = "head_of_department")
 	private String head;
+	
+	@OneToMany
+	@JoinColumn(name="department_id")
+	private List<Degrees> degrees;
 	
 	//getter/setter
 
@@ -80,6 +88,14 @@ public class Departments {
 
 	public void setHead(String head) {
 		this.head = head;
+	}
+
+	public List<Degrees> getDegrees() {
+		return degrees;
+	}
+
+	public void setDegrees(List<Degrees> degrees) {
+		this.degrees = degrees;
 	}
 
 	@Override

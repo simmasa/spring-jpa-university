@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments :: metatags(name='Dettaglio Dipartimento')">
+    
+</head>
+<body>
+    <header th:insert="fragments :: navbar('')"></header>
+    <h1 class="text-center">Dettaglio Dipartimento</h1>
+    <hr>
+	<div class="container" th:if="${deta.degrees.size()>0}">
+    	<table class="table table-striped border">
+        	<thead>
+            	<tr>
+                	<th>Nome</th>
+                	<th>Direttore</th>
+                	<th>Indirizzo</th>
+                	<th>Telefono</th>
+                	<th>Email</th>
+                	<th>Sito</th>
+            	</tr>
+        	</thead>
+        	<tbody>
+           		<tr th:each="deta : ${deta.degrees}">
+                	<td th:text="${deta.name}"></td>
+                	<td th:text="${deta.level}"></td>
+                	<td th:text="${deta.address}"></td>
+                	<td th:text="${deta.email}"></td>
+                	<td th:text="${deta.website}"></td>
+            	</tr>
+        	</tbody>
+    	</table>
+	</div>
+    <p  class="text-center" th:unless="${deta.degrees.size()>0}">Nessun dipartimento trovato</p>
+</body>
+</html>
