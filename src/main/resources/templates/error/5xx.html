@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments :: metatags(name='Errore 5xx')">
+    
+</head>
+<body>
+    <header th:insert="fragments :: navbar('errore')"></header>
+    <h1 >Attenzione</h1>
+    <h2>Errore critico.Chiedi aiuto.</h2>
+    <div th:text="|${status} ${error} ${message}|"></div>
+</body>
+</html>

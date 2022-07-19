@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments :: metatags(name='Teachers')">
+    
+</head>
+<body>
+    <header th:insert="fragments :: navbar(teachers)"></header>
+    <h1 class="text-center">Dipartimenti</h1>
+    <hr>
+	<div class="container" th:if="${teach.size()>0}">
+    	<table class="table table-striped border">
+        	<thead>
+            	<tr>
+                	<th>Nome</th>
+                	<th>Cognome</th>
+            	</tr>
+        	</thead>
+        	<tbody>
+           		<tr th:each="tea : ${teach}">
+                	<td th:text="${tea.name}"></td>
+                	<td th:text="${tea.surname}"></td>
+					<td class="text-center"><a class="btn btn-primary" th:href="@{|/teachers/detail/${tea.id}|}">Dettagli</a></td>
+            	</tr>
+        	</tbody>
+    	</table>
+	</div>
+    <p th:unless="${teach.size()>0}" class="text-center">Nessun dipartimento trovato</p>
+</body>
+</html>

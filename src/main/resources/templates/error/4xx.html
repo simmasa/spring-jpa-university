@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments :: metatags(name='Errore 4xx')">
+    
+</head>
+<body>
+    <header th:insert="fragments :: navbar('errore')"></header>
+    <div class="alert alert-warning col-10 text-center m-auto">
+    <h1>Attenzione</h1>
+    <h2>Sembra che quello che cercavi non si trovi qui.</h2>
+    <p th:text="|${status} ${error}|"></p>
+    <p th:text="${message}"></p>
+    <a class="btn btn-warning" href="/teachers">Torna a Professori</a>
+    </div>
+</body>
+</html>

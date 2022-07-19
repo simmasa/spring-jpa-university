@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:insert="fragments :: metatags(name='Dettaglio professore')">
+    
+</head>
+<body>
+    <header th:insert="fragments :: navbar(teachers)"></header>
+    <h1 class="text-center">Dettagli Professore</h1>
+    <hr>
+    <div class="container">
+    <span th:text:"${teach}"></span>
+    	<table class="table">
+    		<tr>
+                <th>Nome</th>
+                <th>Cognome</th>
+                <th>Telefono</th>
+                <th>Email</th>
+                <th>Indirizzo ufficio</th>
+                <th>Numero ufficio</th>
+            </tr>
+    		<tr th:each="tea: ${teach}">
+    			<td th:text="${tea.name}"></td>
+    			<td th:text="${tea.surname}"></td>
+    			<td th:text="${tea.phone}"></th>
+    			<td th:text="${tea.email}"></th>
+    			<td th:text="${tea.officeAddress}"></th>
+    			<td th:text="${tea.officeNumber}"></th>
+    		</tr>
+    	</table>
+    </div>
+	<div class="container">
+    	<table class="table table-striped border">
+        	<thead>
+            	<tr>
+                	<th>Nome</th>
+                	<th>Descrizione</th>
+                	<th>Periodo</th>
+                	<th>Anno</th>
+                	<th>CFU</th>
+                	<th>Sito</th>
+            	</tr>
+        	</thead>
+        	<tbody>
+           		<tr th:each="corso : ${teach.courses}">
+                	<td th:text="${corso.name}"></td>
+                	<td th:text="${corso.description}"></td>
+                	<td th:text="${corso.period}"></td>
+                	<td th:text="${corso.year}"></td>
+                	<td th:text="${corso.cfu}"></td>
+                	<td th:text="${corso.website != null} ? ${corso.website} : 'Non inserito'">Non inserito</td>
+
+            	</tr>
+        	</tbody>
+    	</table>
+	</div> 
+    <p  class="text-center">Nessun dipartimento trovato</p> -->
+</body>
+</html>

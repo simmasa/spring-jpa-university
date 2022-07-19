@@ -34,7 +34,7 @@ public class MainController {
 		return "vecchio";
 	}
 
-	@GetMapping("/depid_{id}")
+	@GetMapping("/depid_{id}")  // NON SI FA COSI'
 	public String depDetail(Model mod , 
 		@PathVariable(name="id") Integer depaKey){
 		Departments thisDepa = repo.findById(depaKey).get();
